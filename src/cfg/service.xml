@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EndpointModuleConfiguration>
+
+	<!-- Method sample: http://localhost:8090/test?id1="aa"&id2="bb" -->
+	<Method Name="test">
+		<!-- Describe command with optional params -->
+		<Shell Command="notepad.exe" />
+	</Method>
+
+	<Method Name="test2">
+		<!-- Describe command with params -->
+		<Shell Command="notepad.exe" Arguments="/W helloworld.txt" />
+	</Method>	
+	
+	<Method Name="svnadmin_add">
+		<Variables>
+			<!-- Variable name and type -->
+			<Variable Name="username" Type="System.String"/>
+			<!-- Variable name and type -->
+			<Variable Name="password" Type="System.String"/>
+		</Variables>
+		<!-- Describe command with optional params and variables -->
+		<Shell Command="svnadmin" Arguments="adduser {username} {password}" />
+	</Method>
+	
+	<Method Name="svnadmin_makerep">
+		<Variables>
+			<!-- Variable name and type for server method -->
+			<Variable Name="repname" Type="System.String"/>
+		</Variables>
+		<!-- Describe what really command execute with params -->
+		<Shell Command="svnadmin" Arguments="create /home/svnroot/{repname}" />
+	</Method>
+	
+	<!--
+	<Method Name="skydrive_sync">
+		<Plugin Method="skydrive_sync">
+		<arguments>
+			<argument [customname]="[custom_value] or [mapped_variable]"/>
+		</arguments>
+		</Plugin>	
+	</Method>
+	-->
+	
+</EndpointModuleConfiguration>
